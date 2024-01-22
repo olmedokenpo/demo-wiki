@@ -1,28 +1,37 @@
-name: Update Wiki
+name: Sync Wiki
 
 on:
-  push:
-    branches: ["main"]
-  workflow_dispatch:
+  pull_request:
+    branches: 
+      - main
+    paths:
+      - '**'  # Ajusta esto según sea necesario para enfocarse en directorios específicos
 
 jobs:
   update-wiki:
     runs-on: ubuntu-latest
+    if: github.head_ref == 'olmedokenpo-path-1'  # Se ejecuta solo para PRs desde olmedokenpo-path-1
+
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+    - name: Checkout código fuente
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
 
-      - name: Clone Wiki Repository
-        run: git clone https://github.com/${{ github.repository }}.wiki.git wiki
+    - name: Configurar Git
+      run: |
+        git config --global user.email "tuemail@example.com"
+        git config --global user.name "tuNombreDeUsuario"
 
-      - name: Copy index.md to Wiki Repository
-        run: cp index.md wiki/
+    - name: Clonar Wiki
+      run: git clone https://github.com/olmedokenpo/demo-wiki.wiki.git wiki
 
-      - name: Push Changes to Wiki Repository
-        run: |
-          cd wiki
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add index.md
-          git commit -m "Update index.md in Wiki"
-          git push https://${{ secrets.deployment }}@github.com/${{ github.repository }}.wiki.git
+    - name: Copiar archivos a la Wiki
+      run: rsync -av --exclude='.git' --delete ./ wiki/
+
+    - name: Subir cambios a la Wiki
+      run: |
+        cd wiki
+        git add .
+        git commit -m "Actualizar wiki desde olmedokenpo-path-1"
+        git push
