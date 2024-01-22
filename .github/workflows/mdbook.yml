@@ -1,16 +1,13 @@
 name: Sync Wiki
 
 on:
-  pull_request:
+  push:
     branches: 
       - main
-    paths:
-      - '**'  # Ajusta esto según sea necesario para enfocarse en directorios específicos
 
 jobs:
   update-wiki:
     runs-on: ubuntu-latest
-    if: github.head_ref == 'olmedokenpo-path-1'  # Se ejecuta solo para PRs desde olmedokenpo-path-1
 
     steps:
     - name: Checkout código fuente
@@ -20,8 +17,8 @@ jobs:
 
     - name: Configurar Git
       run: |
-        git config --global user.email "tuemail@example.com"
-        git config --global user.name "tuNombreDeUsuario"
+        git config --global user.email "olmedokenpo@gmail.com"
+        git config --global user.name "olmedokenpo"
 
     - name: Clonar Wiki
       run: git clone https://github.com/olmedokenpo/demo-wiki.wiki.git wiki
