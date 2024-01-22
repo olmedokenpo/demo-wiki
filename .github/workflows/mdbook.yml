@@ -47,7 +47,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      # Pasos para actualizar la wiki
+      # Pasos para actualizar la wiki-po
       - name: Clone Wiki Repository
         run: git clone https://github.com/${{ github.repository }}.wiki.git wiki
 
