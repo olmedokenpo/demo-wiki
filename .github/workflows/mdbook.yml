@@ -25,5 +25,4 @@ jobs:
           git config user.email github-actions@github.com
           git add index.md
           git commit -m "Update index.md in Wiki"
-          git push https://${{ secrets.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 }}@github.com/${{ github.repository }}.wiki.git
-        
+          git push https://${{ secrets.deployment }}@github.com/${{ github.repository }}.wiki.git
