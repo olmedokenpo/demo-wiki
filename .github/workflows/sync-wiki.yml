@@ -11,12 +11,12 @@ jobs:
 
     steps:
     - name: Checkout del Repositorio de Código
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: code
 
     - name: Checkout del Repositorio de la Wiki
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: olmedokenpo/demo-wiki.wiki.git
         token: ${{ secrets.GITHUB_TOKEN }}
