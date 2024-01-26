@@ -15,14 +15,12 @@ jobs:
       with:
         path: code
 
-    - name: clonar Repositorio de la Wiki
-      uses: actions/checkout@v3
-      with:
-        repository: olmedokenpo/demo-wiki.wiki.git
-        token: ${{ secrets.GITHUB_TOKEN }}
-        path: wiki
-        ref: main
-
+    - name: Clonar Repositorio de la Wiki con Git manualmente
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git clone --verbose --branch=main --single-branch https://x-access-token:${GITHUB_TOKEN}@github.com/olmedokenpo/demo-wiki.wiki.git wiki
+        
     - name: Copiar Contenido de la Wiki
       run: |
         cp -a code/docs/. wiki/
