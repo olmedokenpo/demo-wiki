@@ -26,13 +26,10 @@ jobs:
         cp -a code/docs/. wiki/
 
     - name: Commit y Push a la Wiki
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         cd wiki
         git config user.name github-actions
         git config user.email github-actions@github.com
-        git config --global credential.helper store  # Esto guarda las credenciales para usarlas en el push
         git add .
         git commit -m "Actualizar wiki desde el repositorio de código" || echo "No hay cambios para commit."
-        git push https://github.com/olmedokenpo/demo-wiki.wiki.git
+        git push https://x-access-token:${GITHUB_TOKEN}@github.com/olmedokenpo/demo-wiki.wiki.git
