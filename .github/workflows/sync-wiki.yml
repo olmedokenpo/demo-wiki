@@ -33,3 +33,4 @@ jobs:
         git add .
         git commit -m "Actualizar wiki desde el repositorio de código" || echo "No hay cambios para commit"
         git push
+        git push https://${{ secrets.GITHUB_TOKEN }}@github.com/olmedokenpo/demo-wiki.wiki.git
