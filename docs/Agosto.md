@@ -1,1 +1,0 @@
-Se ha borrado Julio y se agrega agosto
