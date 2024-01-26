@@ -26,6 +26,8 @@ jobs:
         cp -a code/docs/. wiki/
 
     - name: Commit y Push a la Wiki
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
       run: |
         cd wiki
         git config user.name github-actions
