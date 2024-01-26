@@ -19,8 +19,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        git clone --verbose --branch=main --single-branch https://x-access-token:${GITHUB_TOKEN}@github.com/olmedokenpo/demo-wiki.wiki.git wiki
-        
+        git clone git clone https://github.com/olmedokenpo/demo-wiki.wiki.git wiki
+
     - name: Copiar Contenido de la Wiki
       run: |
         cp -a code/docs/. wiki/
