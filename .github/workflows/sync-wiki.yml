@@ -21,9 +21,9 @@ jobs:
       run: |
         git clone https://github.com/olmedokenpo/demo-wiki.wiki.git wiki
 
-    - name: Update Wiki Content
+    - name: Synchronize Wiki Content
       run: |
-        cp -a code/docs/. wiki/
+        rsync -av --delete code/docs/ wiki/
 
     - name: Commit y Push a la Wiki
       env:
