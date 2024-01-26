@@ -11,16 +11,17 @@ jobs:
 
     steps:
     - name: Checkout del Repositorio de Código
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
       with:
         path: code
 
-    - name: Checkout del Repositorio de la Wiki
-      uses: actions/checkout@v4
+    - name: clonar Repositorio de la Wiki
+      uses: actions/checkout@v3
       with:
         repository: olmedokenpo/demo-wiki.wiki.git
         token: ${{ secrets.GITHUB_TOKEN }}
         path: wiki
+        ref: main
 
     - name: Copiar Contenido de la Wiki
       run: |
