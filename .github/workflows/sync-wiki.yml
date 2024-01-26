@@ -30,8 +30,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
       run: |
         cd wiki
-        git config user.name github-actions
-        git config user.email github-actions@github.com
+        git config user.name "olmedokenpo"
+        git config user.email "olmedokenpo@gmail.com"
         git add .
-        git commit -m "Actualizar wiki desde el repositorio de código" || echo "No hay cambios para commit."
+        git commit -m "Actualizar wiki desde el repositorio de código"
         git push https://x-access-token:${GITHUB_TOKEN}@github.com/olmedokenpo/demo-wiki.wiki.git
