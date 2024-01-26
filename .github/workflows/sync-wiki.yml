@@ -25,9 +25,7 @@ jobs:
       run: |
        rsync -av --delete --exclude '.git' code/docs/ wiki/
 
-    - name: Commit y Push a la Wiki
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Commit and Push to the Wiki
       run: |
         cd wiki
         git config user.name github-actions
