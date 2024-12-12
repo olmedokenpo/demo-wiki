@@ -2,6 +2,13 @@
 
 Welcome to the AAOR Users' Manual. This document is designed to assist in using the application efficiently.
 
+## Project Information
+- **Application**: PROPAMAP
+- **Version**: 1.0.0
+- **Date**: December 2024
+- **Contributors**: [Your name or organization]
+
+
 ## Table of Contents
 - [Introduction](Introduction.md)
 - [Step-by-Step Guide](Step_by_Step_Guide.md)
