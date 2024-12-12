@@ -1,6 +1,6 @@
 # [<img src="./images/antenna.png" alt="images_antena" width="40">](https://github.com/propagamap) AAOR Users' Manual
 
-Welcome to the PROPAMAP Users' Manual. This document is designed to assist in using the application efficiently.
+Welcome to the AAOR Users' Manual. This document is designed to assist in using the application efficiently.
 
 ## Table of Contents
 - [Introduction](Introduccion.md)
