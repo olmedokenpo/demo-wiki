@@ -1,13 +1,12 @@
 # [<img src="./images/antenna.png" alt="images_antena" width="40">](https://github.com/propagamap) AAOR Users' Manual
 
-Welcome to the AAOR Users' Manual. This document is designed to assist in using the application efficiently.
+Welcome to the PROPAMAP Users' Manual. This document is designed to assist in using the application efficiently.
 
 ## Project Information
-- **Application**: PROPAMAP
+- **Application**: AAOR
 - **Version**: 1.0.0
 - **Date**: December 2024
 - **Contributors**: [Your name or organization]
-
 
 ## Table of Contents
 - [Introduction](Introduction.md)
@@ -20,3 +19,11 @@ Welcome to the AAOR Users' Manual. This document is designed to assist in using 
   - [Frequently Asked Questions (FAQ)](Troubleshooting.md#frequently-asked-questions-faq)
   - [Technical Support](Troubleshooting.md#technical-support)
 - [Glossary](Glossary.md)
+
+---
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  
+  <div style="text-align: right;">
+    <a href="Introduction.md">Next Page</a> ➡️
+  </div>
+</div>
