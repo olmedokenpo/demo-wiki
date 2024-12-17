@@ -1,5 +1,3 @@
-# Home
-
 ¡Bienvenido a la wiki de tu proyecto! Aquí encontrarás información detallada organizada en diferentes secciones.
 
 - **Library Design**: Cómo está diseñada y estructurada la librería, decisiones tomadas durante el desarrollo y funcionamiento interno.
@@ -9,6 +7,3 @@
 
 ---
 
-## Enlaces Rápidos
-
-[www.ejemplo.com](https://www.ejemplo.com) | [GitHub](https://github.com) | [Discord](https://discord.com) | [YouTube](https://youtube.com)
