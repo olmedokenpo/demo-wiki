@@ -4,7 +4,8 @@
 - [Basic Navigation](Basic_Navigation.md)
 - [Main Features](Main_Features.md)
 - [Advanced Settings](Advanced_Settings.md)
-- [Frequently Asked Questions (FAQ)](Troubleshooting.md#frequently-asked-questions-faq)
-- [Technical Support](Troubleshooting.md#technical-support)
+- [Frequently Asked Questions](Frequently_Asked_Questions.md)
+- [Technical Support](Technical_Support.md)
 - [Glossary](Glossary.md)
+
 
