@@ -6,7 +6,7 @@
 
 This is your guide to using the PROPAMAP application effectively and efficiently.
 
-[Get Started](indice.html)
+[Get Started](Introduction.md)
 
 ## What is PROPAMAP?
 
