@@ -1,7 +1,7 @@
 # PROPAMAP Users' Manual
-- [Introduction](./Introduction.md)
-- [Registration and Access](Registration_and_Access.md)
-- [Technical Support Information](Technical_Support.md)
+- [Introduction](./Introduction)
+- [Registration and Access](Registration_and_Access)
+- [Technical Support Information](Technical_Support)
 
 # Main Features
 - [Coverage Planning Tool](Coverage_Planning_Tool.md)
