@@ -1,21 +1,21 @@
 # PROPAMAP Users' Manual
-- [Introduction](./Introduction)
+- [Introduction](Introduction)
 - [Registration and Access](Registration_and_Access)
 - [Technical Support Information](Technical_Support)
 
 # Main Features
-- [Coverage Planning Tool](Coverage_Planning_Tool.md)
-- [Terrain Elevation Analyzer](Terrain_Elevation_Analyzer.md)
-- [Raytracing Simulator](Raytracing_Simulator.md)
+- [Coverage Planning Tool](Coverage_Planning_Tool)
+- [Terrain Elevation Analyzer](Terrain_Elevation_Analyzer)
+- [Raytracing Simulator](Raytracing_Simulator)
 
 # Common Symbols
-- [Symbols](Simbologia.md)
+- [Symbols](Simbologia)
 
 # Objects
-- [Point](Punto.md)
-- [Area](Area.md)
-- [Lines](Lineas.md)
-- [Antennas](Antenas.md)
+- [Point](Punto)
+- [Area](Area)
+- [Lines](Lineas)
+- [Antennas](Antenas)
 - [Link](Enlace.md)
 - [Antenna Optimization Areas](Areas_Optimizacion_Antenas.md)
 - [Signal Loss Calculation Areas](Areas_Calculo_Perda_Senal.md)
