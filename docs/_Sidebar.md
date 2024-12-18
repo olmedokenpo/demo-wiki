@@ -4,9 +4,9 @@
 - [Technical Support Information](echnical-Support-Information)
 
 # Main Features
-- [Coverage Planning Tool](Coverage_Planning_Tool)
-- [Terrain Elevation Analyzer](Terrain_Elevation_Analyzer)
-- [Raytracing Simulator](Raytracing_Simulator)
+- [Coverage Planning Tool](Coverage-Planning-Tool)
+- [Terrain Elevation Analyzer](Terrain-Elevation-Analyzer)
+- [Raytracing Simulator](Raytracing-Simulator)
 
 # Common Symbols
 - [Symbols](Simbologia)
