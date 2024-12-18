@@ -1,5 +1,5 @@
 # PROPAMAP Users' Manual
-- [Introduction](Introduction.md)
+- [Introduction](./Introduction.md)
 - [Registration and Access](Registration_and_Access.md)
 - [Technical Support Information](Technical_Support.md)
 
