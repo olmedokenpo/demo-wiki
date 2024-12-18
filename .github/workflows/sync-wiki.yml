@@ -23,7 +23,7 @@ jobs:
 
     - name: Synchronize Wiki Content
       run: |
-       rsync -av --delete --exclude '.git' code/docs/ wiki/
+       rsync -av --delete --exclude '.git' code/docs/* wiki/
 
     - name: Commit and Push to the Wiki
       env:
