@@ -26,7 +26,7 @@ if [ -n "$root_files" ]; then
   while IFS= read -r file; do
     filename=$(basename "$file" .md)
     display_name=$(echo "$filename" | sed -E 's/-/ /g' | sed -E 's/\b./\U&/g')
-    echo "- [$display_name](${filename}.md)" >> "$sidebar_file"  # Asegurarse de agregar .md
+    echo "- [$display_name](${filename})" >> "$sidebar_file"  # Sin la extensión .md para enlaces
   done <<< "$root_files"
 
   # Agregar una línea en blanco para separación
@@ -50,7 +50,7 @@ for subdir in "${subdir_order[@]}"; do
         if [ -f "$subdir/$file" ]; then
           filename=$(basename "$file" .md)
           display_name=$(echo "$filename" | sed -E 's/-/ /g' | sed -E 's/\b./\U&/g')
-          echo "- [$display_name](${subdir}/${filename}.md)" >> "$sidebar_file"  # Asegurarse de agregar .md
+          echo "- [$display_name](${filename})" >> "$sidebar_file"  # Sin la ruta del subdirectorio
         fi
       done
     else
@@ -59,7 +59,7 @@ for subdir in "${subdir_order[@]}"; do
       while IFS= read -r file; do
         filename=$(basename "$file" .md)
         display_name=$(echo "$filename" | sed -E 's/-/ /g' | sed -E 's/\b./\U&/g')
-        echo "- [$display_name](${subdir}/${filename}.md)" >> "$sidebar_file"  # Asegurarse de agregar .md
+        echo "- [$display_name](${filename})" >> "$sidebar_file"  # Sin la ruta del subdirectorio
       done <<< "$files"
     fi
 
