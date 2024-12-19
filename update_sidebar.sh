@@ -3,47 +3,68 @@
 # Nombre del archivo _Sidebar.md
 sidebar_file="_Sidebar.md"
 
+# Orden deseado para los subdirectorios
+# Agrega aquí los nombres de los subdirectorios en el orden deseado
+declare -a subdir_order=("introduction" "main-features")
+
+# Orden deseado para los archivos dentro de cada subdirectorio
+# Define un orden específico para cada subdirectorio (clave es el nombre del subdirectorio)
+declare -A file_order=(
+  ["introduction"]="Introduction.md Registration-and-Access.md Technical-Support-Information.md"
+  ["main-features"]="Coverage-Planning-Tool.md Terrain-Elevation-Analyzer.md Raytracing-Simulator.md"
+)
+
 # Crear o limpiar el contenido del archivo _Sidebar.md
 > "$sidebar_file"
 
-# Iterar sobre cada subdirectorio
-for dir in */; do
-  # Quitar la barra al final del nombre del subdirectorio
-  subdir=$(basename "$dir")
+# Agregar primero el título para los archivos raíz
+echo "# PROPAMAP Users' Manual" >> "$sidebar_file"
 
-  # Obtener todos los archivos .md dentro del subdirectorio
-  files=$(find "$dir" -maxdepth 1 -name "*.md" -type f)
-
-  # Si hay archivos .md en el subdirectorio
-  if [ -n "$files" ]; then
-    # Agregar el encabezado con el nombre del subdirectorio
-    echo "# ${subdir^}" >> "$sidebar_file"
-
-    # Iterar sobre cada archivo .md en el subdirectorio
-    while IFS= read -r file; do
-      # Obtener el nombre del archivo sin extensión
-      filename=$(basename "$file" .md)
-
-      # Reemplazar guiones por espacios y capitalizar palabras
-      display_name=$(echo "$filename" | sed -E 's/-/ /g' | sed -E 's/\b./\U&/g')
-
-      # Agregar el enlace al archivo _Sidebar.md
-      echo "- [$display_name](${filename})" >> "$sidebar_file"
-    done <<< "$files"
-
-    # Agregar una línea en blanco para separación
-    echo "" >> "$sidebar_file"
-  fi
-done
-
-# Procesar los archivos .md en la raíz
+# Procesar los archivos .md en la raíz del wiki
 root_files=$(find . -maxdepth 1 -name "*.md" -type f ! -name "_Sidebar.md")
 
 if [ -n "$root_files" ]; then
-  echo "# Root Files" >> "$sidebar_file"
   while IFS= read -r file; do
     filename=$(basename "$file" .md)
     display_name=$(echo "$filename" | sed -E 's/-/ /g' | sed -E 's/\b./\U&/g')
     echo "- [$display_name](${filename})" >> "$sidebar_file"
   done <<< "$root_files"
+
+  # Agregar una línea en blanco para separación
+  echo "" >> "$sidebar_file"
 fi
+
+# Iterar sobre los subdirectorios en el orden definido
+for subdir in "${subdir_order[@]}"; do
+  if [ -d "$subdir" ]; then
+    # Obtener el nombre del subdirectorio y formatearlo como título
+    subdir_title=$(echo "$subdir" | sed -E 's/-/ /g' | sed -E 's/\b./\U&/g')
+
+    # Agregar el título del subdirectorio
+    echo "# ${subdir_title}" >> "$sidebar_file"
+
+    # Verificar si hay un orden específico para los archivos en este subdirectorio
+    if [[ -n "${file_order[$subdir]}" ]]; then
+      # Usar el orden definido en file_order
+      for file in ${file_order[$subdir]}; do
+        # Verificar que el archivo exista antes de agregarlo
+        if [ -f "$subdir/$file" ]; then
+          filename=$(basename "$file" .md)
+          display_name=$(echo "$filename" | sed -E 's/-/ /g' | sed -E 's/\b./\U&/g')
+          echo "- [$display_name](${subdir}/${filename})" >> "$sidebar_file"
+        fi
+      done
+    else
+      # Si no hay un orden definido, listar los archivos alfabéticamente
+      files=$(find "$subdir" -maxdepth 1 -name "*.md" -type f | sort)
+      while IFS= read -r file; do
+        filename=$(basename "$file" .md)
+        display_name=$(echo "$filename" | sed -E 's/-/ /g' | sed -E 's/\b./\U&/g')
+        echo "- [$display_name](${subdir}/${filename})" >> "$sidebar_file"
+      done <<< "$files"
+    fi
+
+    # Agregar una línea en blanco para separación
+    echo "" >> "$sidebar_file"
+  fi
+done
