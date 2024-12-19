@@ -32,13 +32,13 @@ jobs:
 
     - name: Synchronize Wiki Content
       run: |
-        # Sincronizar los archivos de la raíz
+        # Sincronizar los archivos de la raíz (archivos en code/docs/)
         rsync -av --delete --exclude '.git' code/docs/* wiki/
 
-        # Sincronizar los archivos de cada subdirectorio en la raíz de la wiki
-        rsync -av --delete --exclude '.git' code/docs/introduction/* wiki/
-        rsync -av --delete --exclude '.git' code/docs/main-features/* wiki/
-        rsync -av --delete --exclude '.git' code/docs/common-symbols/* wiki/
+        # Encontrar todos los subdirectorios dentro de code/docs y sincronizar sus archivos en la raíz de la wiki
+        for subdir in $(find code/docs -mindepth 1 -maxdepth 1 -type d); do
+          rsync -av --delete --exclude '.git' "$subdir"/* wiki/
+        done
 
     - name: Commit and Push to the Wiki
       env:
