@@ -4,13 +4,14 @@
 sidebar_file="_Sidebar.md"
 
 # Orden deseado para los subdirectorios
-declare -a subdir_order=("introduction" "main-features" "common-symbols")
+declare -a subdir_order=("introduction" "main-features" "common-symbols" "objects")
 
 # Orden deseado para los archivos dentro de cada subdirectorio
 declare -A file_order=(
   ["introduction"]="Introduction.md Registration-and-Access.md Technical-Support-Information.md"
   ["main-features"]="Terrain-Elevation-Analyzer.md Coverage-Planning-Tool.md Raytracing-Simulator.md"
   ["common-symbols"]="Symbols.md"
+  ["objects"]="Point.md"
 )
 
 # Crear o limpiar el contenido del archivo _Sidebar.md
