@@ -11,7 +11,8 @@ declare -a subdir_order=("introduction" "main-features")
 # Define un orden específico para cada subdirectorio (clave es el nombre del subdirectorio)
 declare -A file_order=(
   ["introduction"]="Introduction.md Registration-and-Access.md Technical-Support-Information.md"
-  ["main-features"]="Coverage-Planning-Tool.md Terrain-Elevation-Analyzer.md Raytracing-Simulator.md"
+  ["main-features"]="Terrain-Elevation-Analyzer.md Coverage-Planning-Tool.md Raytracing-Simulator.md"
+  ["common-symbols"]="Symbols.md"
 )
 
 # Crear o limpiar el contenido del archivo _Sidebar.md
