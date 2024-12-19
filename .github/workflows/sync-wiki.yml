@@ -32,7 +32,13 @@ jobs:
 
     - name: Synchronize Wiki Content
       run: |
+        # Sincronizar los archivos de la raíz
         rsync -av --delete --exclude '.git' code/docs/* wiki/
+
+        # Sincronizar los archivos de cada subdirectorio en la raíz de la wiki
+        rsync -av --delete --exclude '.git' code/docs/introduction/* wiki/
+        rsync -av --delete --exclude '.git' code/docs/main-features/* wiki/
+        rsync -av --delete --exclude '.git' code/docs/common-symbols/* wiki/
 
     - name: Commit and Push to the Wiki
       env:
