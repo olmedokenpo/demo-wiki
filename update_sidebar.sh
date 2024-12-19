@@ -5,7 +5,7 @@ sidebar_file="_Sidebar.md"
 
 # Orden deseado para los subdirectorios
 # Agrega aquí los nombres de los subdirectorios en el orden deseado
-declare -a subdir_order=("introduction" "main-features")
+declare -a subdir_order=("introduction" "main-features" "common-symbols")
 
 # Orden deseado para los archivos dentro de cada subdirectorio
 # Define un orden específico para cada subdirectorio (clave es el nombre del subdirectorio)
