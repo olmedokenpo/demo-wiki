@@ -3,7 +3,7 @@ name: Synchronize Wiki
 on:
   push:
     branches:
-      - main  
+      - main
 
 jobs:
   update-wiki:
@@ -15,7 +15,12 @@ jobs:
       with:
         path: code
 
-    - name: Clone the wiki Repository
+    - name: Run Sidebar Script
+      run: |
+        cd code/docs
+        bash ../update_sidebar.sh # Ejecuta el script para actualizar _Sidebar.md
+
+    - name: Clone the Wiki Repository
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
@@ -23,7 +28,7 @@ jobs:
 
     - name: Synchronize Wiki Content
       run: |
-       rsync -av --delete --exclude '.git' code/docs/* wiki/
+        rsync -av --delete --exclude '.git' code/docs/* wiki/
 
     - name: Commit and Push to the Wiki
       env:
