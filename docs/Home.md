@@ -1,6 +1,6 @@
 
 
-![Antena](images/antenna.png)
+![Antena](./images/antenna.png)
 
 # Welcome to PROPAMAP User Manual
 
