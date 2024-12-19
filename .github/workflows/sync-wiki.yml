@@ -26,6 +26,10 @@ jobs:
       run: |
         git clone https://github.com/olmedokenpo/demo-wiki.wiki.git wiki
 
+    - name: Clean the Wiki Content
+      run: |
+        rm -rf wiki/* # Elimina todo el contenido en el directorio wiki antes de agregar los nuevos archivos
+
     - name: Synchronize Wiki Content
       run: |
         rsync -av --delete --exclude '.git' code/docs/* wiki/

@@ -1,14 +1,12 @@
-#!/bin/bash
+#!/bin/bash 
 
 # Nombre del archivo _Sidebar.md
 sidebar_file="_Sidebar.md"
 
 # Orden deseado para los subdirectorios
-# Agrega aquí los nombres de los subdirectorios en el orden deseado
 declare -a subdir_order=("introduction" "main-features" "common-symbols")
 
 # Orden deseado para los archivos dentro de cada subdirectorio
-# Define un orden específico para cada subdirectorio (clave es el nombre del subdirectorio)
 declare -A file_order=(
   ["introduction"]="Introduction.md Registration-and-Access.md Technical-Support-Information.md"
   ["main-features"]="Terrain-Elevation-Analyzer.md Coverage-Planning-Tool.md Raytracing-Simulator.md"
