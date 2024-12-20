@@ -1,1 +1,1 @@
-df.mfnkl
+This is the Area.md page.
