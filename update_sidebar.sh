@@ -10,7 +10,7 @@ declare -A file_order=(
   ["introduction"]="Technical-Support-Information.md Introduction.md Registration-and-Access.md"
   ["main-features"]="Terrain-Elevation-Analyzer.md Coverage-Planning-Tool.md Raytracing-Simulator.md"
   ["common-symbols"]="Symbols.md"
-  ["objects"]="Point.md Area.md"
+  ["objects"]="Point.md Area.md Lines.md"
 )
 
 > "$sidebar_file"
