@@ -1,56 +1,45 @@
-#!/bin/bash 
+#!/bin/bash
 
+# Nombre del archivo _Sidebar.md
 sidebar_file="_Sidebar.md"
 
+# Crear o limpiar el contenido del archivo _Sidebar.md
 > "$sidebar_file"
 
-# Title added to the right-hand panel
+# Agregar primero el título para los archivos raíz
 echo "# PROPAMAP Users' Manual" >> "$sidebar_file"
 
-
-root_files=$(find . -maxdepth 1 -name "*.md" -type f ! -name "_Sidebar.md")
-
-if [ -n "$root_files" ]; then
-  while IFS= read -r file; do
-    filename=$(basename "$file" .md)
-    display_name=$(echo "$filename" | sed -E 's/-/ /g' | sed -E 's/\b./\U&/g')
-    echo "- [$display_name](${filename})" >> "$sidebar_file"  # Sin la extensión .md para enlaces
-  done <<< "$root_files"
-
-  
-  echo "" >> "$sidebar_file"
+# Procesar el archivo Home.md en la raíz del directorio
+if [ -f "Home.md" ]; then
+  echo "- [Home](Home)" >> "$sidebar_file"
+  echo "" >> "$sidebar_file" # Línea en blanco para separación
 fi
 
+# Ordenar los subdirectorios por prefijos
+subdirs=$(find . -mindepth 1 -maxdepth 1 -type d | sort)
 
-for subdir in "${subdir_order[@]}"; do
-  if [ -d "$subdir" ]; then
-    
-    subdir_title=$(echo "$subdir" | sed -E 's/-/ /g' | sed -E 's/\b./\U&/g')
+# Iterar sobre los subdirectorios en orden
+for subdir in $subdirs; do
+  # Eliminar el prefijo del nombre del subdirectorio para mostrarlo como título
+  subdir_name=$(basename "$subdir")
+  subdir_title=$(echo "$subdir_name" | sed -E 's/^[0-9]+-//g' | sed -E 's/-/ /g' | sed -E 's/\b./\U&/g')
 
-    
-    echo "# ${subdir_title}" >> "$sidebar_file"
+  # Agregar el título del subdirectorio
+  echo "# ${subdir_title}" >> "$sidebar_file"
 
-    
-    if [[ -n "${file_order[$subdir]}" ]]; then
-      
-      for file in ${file_order[$subdir]}; do
-        
-        if [ -f "$subdir/$file" ]; then
-          filename=$(basename "$file" .md)
-          display_name=$(echo "$filename" | sed -E 's/-/ /g' | sed -E 's/\b./\U&/g')
-          echo "- [$display_name](${filename})" >> "$sidebar_file"  
-        fi
-      done
-    else
-      
-      files=$(find "$subdir" -maxdepth 1 -name "*.md" -type f | sort)
-      while IFS= read -r file; do
-        filename=$(basename "$file" .md)
-        display_name=$(echo "$filename" | sed -E 's/-/ /g' | sed -E 's/\b./\U&/g')
-        echo "- [$display_name](${filename})" >> "$sidebar_file"  
-      done <<< "$files"
-    fi
-  
-    echo "" >> "$sidebar_file"
-  fi
+  # Ordenar los archivos dentro del subdirectorio por prefijos
+  files=$(find "$subdir" -maxdepth 1 -name "*.md" -type f | sort)
+
+  # Iterar sobre los archivos del subdirectorio
+  while IFS= read -r file; do
+    # Eliminar el prefijo del nombre del archivo para mostrarlo
+    filename=$(basename "$file" .md)
+    display_name=$(echo "$filename" | sed -E 's/^[0-9]+-//g' | sed -E 's/-/ /g' | sed -E 's/\b./\U&/g')
+
+    # Agregar el archivo al índice
+    echo "- [${display_name}](${filename})" >> "$sidebar_file"
+  done <<< "$files"
+
+  # Agregar una línea en blanco para separación
+  echo "" >> "$sidebar_file"
 done
