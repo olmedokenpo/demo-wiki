@@ -40,8 +40,8 @@ for subdir in $subdirs; do
     # Eliminar el prefijo numérico para mostrar el nombre
     display_name=$(echo "$filename" | sed -E 's/^[0-9]+-//g' | sed -E 's/-/ /g' | sed -E 's/\b./\U&/g')
 
-    # Agregar el archivo al índice
-    echo "- [${display_name}](${filename})" >> "$sidebar_file"
+    # Agregar el archivo al índice (enlace con nombre de archivo con prefijo)
+    echo "- [${display_name}](${subdir}/${filename})" >> "$sidebar_file"
   done <<< "$files"
 
   # Agregar una línea en blanco para separación
