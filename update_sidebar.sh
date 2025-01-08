@@ -34,13 +34,16 @@ for subdir in $subdirs; do
 
   # Iterar sobre los archivos seleccionados
   while IFS= read -r file; do
-    # Obtener el nombre base del archivo sin extensión
-    filename=$(basename "$file" .md)
+    # Obtener el nombre base del archivo con prefijo
+    filename_with_prefix=$(basename "$file" .md)
 
-    # Eliminar el prefijo numérico para mostrar el nombre
-    display_name=$(echo "$filename" | sed -E 's/^[0-9]+-//g' | sed -E 's/-/ /g' | sed -E 's/\b./\U&/g')
+    # Generar el nombre limpio sin prefijo
+    filename=$(echo "$filename_with_prefix" | sed -E 's/^[0-9]+-//g')
 
-    # Agregar el archivo al índice
+    # Eliminar el prefijo numérico para mostrar el nombre en el sidebar
+    display_name=$(echo "$filename" | sed -E 's/-/ /g' | sed -E 's/\b./\U&/g')
+
+    # Agregar el archivo al índice (enlace sin prefijo)
     echo "- [${display_name}](${filename})" >> "$sidebar_file"
   done <<< "$files"
 
