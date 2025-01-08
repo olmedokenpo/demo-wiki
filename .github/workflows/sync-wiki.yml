@@ -35,6 +35,11 @@ jobs:
         # Copiar _Sidebar.md directamente
         cp code/docs/_Sidebar.md wiki/
 
+        # Copiar Home.md directamente sin modificaciones
+        if [[ -f code/docs/Home.md ]]; then
+          cp code/docs/Home.md wiki/
+        fi
+
         # Copiar archivos de la raíz sin prefijos
         for file in code/docs/*.md; do
           if [[ $(basename "$file") != "_Sidebar.md" && $(basename "$file") != "Home.md" ]]; then
@@ -52,6 +57,11 @@ jobs:
             fi
           done
         done
+
+        # Copiar el subdirectorio images completo sin modificaciones
+        if [[ -d code/docs/images ]]; then
+          cp -r code/docs/images wiki/
+        fi
 
     - name: Commit and Push to the Wiki
       env:
