@@ -5,6 +5,9 @@ Propamap is an advanced web application designed to assist users in propagation 
 
 Propamap offers an intuitive, map-based interface that allows users to navigate and select specific areas anywhere in the world. The tool is tailored to address communication challenges and similar applications, providing support for real-world scenarios with exceptional precision and detail.
 
+![Main Interface of Propamap](../images/main_application_window.png)
+*Figure 1: The main interface of Propamap showing its intuitive map-based design.*
+
 ### Main Modules
 
 Propamap includes two main modules for propagation analysis and antenna positioning:
@@ -30,4 +33,3 @@ Explore the sections of this manual to learn how to use each functionality and m
 
 | [Previous](Home) | [Home](home)     | [Next](Registration-and-Access) |
 |-------------------|:-----------------:|--------------:|
-
