@@ -28,6 +28,6 @@ Both modules operate in real-world scenarios, allowing users to select any area 
 Explore the sections of this manual to learn how to use each functionality and maximize the capabilities of Propamap.
 
 
-| [Previous](#prev) | [Home](#home)     | [Next](#next) |
+| [Previous](Home) | [Home](home)     | [Next](Registration-and-Access) |
 |-------------------|:-----------------:|--------------:|
 
