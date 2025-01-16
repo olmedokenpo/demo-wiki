@@ -32,13 +32,36 @@ jobs:
 
     - name: Synchronize Wiki Content
       run: |
-        # Sincronizar los archivos de la raíz (archivos en code/docs/)
-        rsync -av --delete --exclude '.git' code/docs/* wiki/
+        # Copiar _Sidebar.md directamente
+        cp code/docs/_Sidebar.md wiki/
 
-        # Encontrar todos los subdirectorios dentro de code/docs y sincronizar sus archivos en la raíz de la wiki
-        for subdir in $(find code/docs -mindepth 1 -maxdepth 1 -type d); do
-          rsync -av --delete --exclude '.git' "$subdir"/* wiki/
+        # Copiar Home.md directamente sin modificaciones
+        if [[ -f code/docs/Home.md ]]; then
+          cp code/docs/Home.md wiki/
+        fi
+
+        # Copiar archivos de la raíz sin prefijos
+        for file in code/docs/*.md; do
+          if [[ $(basename "$file") != "_Sidebar.md" && $(basename "$file") != "Home.md" ]]; then
+            clean_name=$(basename "$file" | sed -E 's/^[0-9]+-//')
+            cp "$file" "wiki/$clean_name"
+          fi
         done
+
+        # Procesar subdirectorios y copiar archivos sin prefijos
+        for subdir in $(find code/docs -mindepth 1 -maxdepth 1 -type d -name "[0-9]*"); do
+          for file in "$subdir"/*.md; do
+            if [[ -f "$file" ]]; then
+              clean_name=$(basename "$file" | sed -E 's/^[0-9]+-//')
+              cp "$file" "wiki/$clean_name"
+            fi
+          done
+        done
+
+        # Copiar el subdirectorio images completo sin modificaciones
+        if [[ -d code/docs/images ]]; then
+          cp -r code/docs/images wiki/
+        fi
 
     - name: Commit and Push to the Wiki
       env:
