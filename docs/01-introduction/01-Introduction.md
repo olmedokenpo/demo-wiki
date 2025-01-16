@@ -5,7 +5,7 @@ Propamap is an advanced web application designed to assist users in propagation 
 
 Propamap offers an intuitive, map-based interface that allows users to navigate and select specific areas anywhere in the world. The tool is tailored to address communication challenges and similar applications, providing support for real-world scenarios with exceptional precision and detail.
 
-![Main Interface of Propamap](../images/main_application_window_um.png)
+![Main Interface of Propamap](./images/main_application_window_um.png)
 *Figure 1: Propamap main interface.*
 
 ### Main Modules
