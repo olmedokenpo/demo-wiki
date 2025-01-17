@@ -28,19 +28,17 @@ jobs:
 
     - name: Clean the Wiki Content
       run: |
-        rm -rf wiki/* # Elimina todo el contenido en el directorio wiki antes de agregar los nuevos archivos
+        rm -rf wiki/* 
 
     - name: Synchronize Wiki Content
       run: |
-        # Copiar _Sidebar.md directamente
+      
         cp code/docs/_Sidebar.md wiki/
 
-        # Copiar Home.md desde el subdirectorio 01-home
         if [[ -f code/docs/01-home/Home.md ]]; then
           cp code/docs/01-home/Home.md wiki/Home.md
         fi
 
-        # Procesar subdirectorios y archivos .md
         for subdir in $(find code/docs -mindepth 1 -maxdepth 1 -type d -name "[0-9]*"); do
           for file in "$subdir"/*.md; do
             if [[ -f "$file" ]]; then
@@ -52,7 +50,6 @@ jobs:
           done
         done
 
-        # Copiar el subdirectorio images completo
         if [[ -d code/docs/images ]]; then
           cp -r code/docs/images wiki/
         fi
