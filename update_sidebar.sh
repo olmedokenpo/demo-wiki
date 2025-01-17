@@ -6,11 +6,11 @@ sidebar_file="_Sidebar.md"
 # Crear o limpiar el contenido del archivo _Sidebar.md
 > "$sidebar_file"
 
-# Agregar el título principal para los archivos raíz
+# Agregar el título principal para el archivo Home.md
 echo "# PROPAMAP Users' Manual" >> "$sidebar_file"
 
-# Incluir el archivo Home.md si existe
-if [ -f "Home.md" ]; then
+# Incluir el archivo Home.md desde el subdirectorio 01-home si existe
+if [ -f "01-home/Home.md" ]; then
   echo "- [Home](Home)" >> "$sidebar_file"
   echo "" >> "$sidebar_file" # Línea en blanco para separación
 fi

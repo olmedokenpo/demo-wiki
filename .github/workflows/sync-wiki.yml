@@ -35,30 +35,24 @@ jobs:
         # Copiar _Sidebar.md directamente
         cp code/docs/_Sidebar.md wiki/
 
-        # Copiar Home.md directamente sin modificaciones
-        if [[ -f code/docs/Home.md ]]; then
-          cp code/docs/Home.md wiki/
+        # Copiar Home.md desde el subdirectorio 01-home
+        if [[ -f code/docs/01-home/Home.md ]]; then
+          cp code/docs/01-home/Home.md wiki/Home.md
         fi
 
-        # Copiar archivos de la raíz sin prefijos
-        for file in code/docs/*.md; do
-          if [[ $(basename "$file") != "_Sidebar.md" && $(basename "$file") != "Home.md" ]]; then
-            clean_name=$(basename "$file" | sed -E 's/^[0-9]+-//')
-            cp "$file" "wiki/$clean_name"
-          fi
-        done
-
-        # Procesar subdirectorios y copiar archivos sin prefijos
+        # Procesar subdirectorios y archivos .md
         for subdir in $(find code/docs -mindepth 1 -maxdepth 1 -type d -name "[0-9]*"); do
           for file in "$subdir"/*.md; do
             if [[ -f "$file" ]]; then
+              # Editar enlaces a imágenes
+              sed -i 's|\.\./images/|./images/|g' "$file"
               clean_name=$(basename "$file" | sed -E 's/^[0-9]+-//')
               cp "$file" "wiki/$clean_name"
             fi
           done
         done
 
-        # Copiar el subdirectorio images completo sin modificaciones
+        # Copiar el subdirectorio images completo
         if [[ -d code/docs/images ]]; then
           cp -r code/docs/images wiki/
         fi
