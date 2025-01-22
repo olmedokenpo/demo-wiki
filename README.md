@@ -98,3 +98,12 @@ The synchronization process uses a script and a GitHub Actions workflow to autom
 3. The `sync-wiki` workflow will automatically execute to:
    - Generate a new `_Sidebar.md` file.
    - Synchronize changes with the wiki repository.
+
+
+
+
+## Test
+
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=xcJtL7QggTI" 
+frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
