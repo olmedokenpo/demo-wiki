@@ -167,3 +167,6 @@ docs/video/SampleVideo_1280x720_20mb.mp4
     <source src="./docs/video/SampleVideo_1280x720_20mb.mp4" type="video/mp4">
     Tu navegador no soporta la reproducción de este video.
 </video>
+
+# Video desdce issue
+https://github.com/user-attachments/assets/cbbf456a-c545-4224-9d74-537fc4cafa6b
