@@ -122,32 +122,6 @@ allowfullscreen></iframe>
       </a>
 </div>
 
-
-
-## Otro
-
-[https://www.youtube.com/watch?v=dQw4w9WgXcQ](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-
-
-[https://www.youtube.com/watch?v=dQw4w9WgXcQ](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-
-## Nice Visualization of Refactoring to use Guard Clauses
-
-https://user-images.githubusercontent.com/782127/234028498-96e206b0-9a70-4aa0-9c36-a62477ea0aa9.mp4
-
-via [Nicolas Carlo](https://toot.legacycode.rocks/@nicoespeon/110226815487285845)
-
-## References
-
-- [Getting Started with Guard Clauses](https://blog.nimblepros.com/blogs/getting-started-with-guard-clauses/)
-- [How to write clean validation clauses in .NET](https://www.youtube.com/watch?v=Tvx6DNarqDM) (Nick Chapsas, YouTube, 9 minutes)
-- [Guard Clauses (podcast: 7 minutes)](http://www.weeklydevtips.com/004)
-- [Guard Clause](http://deviq.com/guard-clause/)
-
 # Video Test
 
 https://github.com/user-attachments/assets/bc4b67e3-d95e-4731-bfe2-abfe4952d19a
