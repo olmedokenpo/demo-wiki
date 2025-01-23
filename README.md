@@ -100,7 +100,12 @@ The synchronization process uses a script and a GitHub Actions workflow to autom
    - Synchronize changes with the wiki repository.
 
 
-### Video Test
+### Video Test-Through comments on issue
+
+### Spanish
 
 https://github.com/user-attachments/assets/bc4b67e3-d95e-4731-bfe2-abfe4952d19a
 
+### English
+
+https://github.com/user-attachments/assets/d99481c5-3c8a-4d6d-99b9-326f29fd78ac
