@@ -150,4 +150,6 @@ via [Nicolas Carlo](https://toot.legacycode.rocks/@nicoespeon/110226815487285845
 
 # Video Test
 
-https://github.com/olmedokenpo/demo-wiki/docs/video/SampleVideo_1280x720_20mb.mp4
+
+
+https://github.com/olmedokenpo/demo-wiki/blob/feaf21ccb98752173340434bf21cb492b0360bbb/docs/video/SampleVideo_1280x720_20mb.mp4
