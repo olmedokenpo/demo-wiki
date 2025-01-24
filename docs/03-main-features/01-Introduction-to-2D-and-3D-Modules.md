@@ -1,5 +1,3 @@
-# Introduction to the Main Modules of Propamap
-
 Now, let us introduce the main modules of **Propamap**:
 
 1. **2D Propagation Planner**
